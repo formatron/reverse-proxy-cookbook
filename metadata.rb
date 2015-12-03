@@ -1,0 +1,5 @@
+name 'formatron_reverse_proxy'
+version '0.1.0'
+supports 'ubuntu'
+depends 'formatron_common'
+depends 'formatron_nginx'
