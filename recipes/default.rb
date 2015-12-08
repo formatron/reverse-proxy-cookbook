@@ -11,6 +11,11 @@ node.default['formatron_filebeat']['prospectors'] = [{
     '/var/log/nginx/*access.log'
   ],
   document_type: 'nginx_access'
+}, {
+  paths: [
+    '/var/log/nginx/*error.log'
+  ],
+  document_type: 'nginx_error'
 }]
 
 node.default['formatron_common']['configuration'] = configuration
