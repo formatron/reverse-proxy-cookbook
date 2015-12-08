@@ -1,6 +1,18 @@
 configuration = node['formatron_reverse_proxy']['configuration']
 proxies = node['formatron_reverse_proxy']['proxies']
 
+node.default['formatron_filebeat']['prospectors'] = [{
+  paths: [
+    '/var/log/syslog'
+  ],
+  document_type: 'syslog'
+}, {
+  paths: [
+    '/var/log/nginx/*access.log'
+  ],
+  document_type: 'nginx_access'
+}]
+
 node.default['formatron_common']['configuration'] = configuration
 include_recipe 'formatron_common::default'
 
