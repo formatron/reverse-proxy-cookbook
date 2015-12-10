@@ -33,27 +33,35 @@ node.default['formatron_reverse_proxy']['configuration'] = {
           'gem' => 'sensu-plugins-cpu-checks',
           'version' => '0.0.4'
         }
-      },
-      'rabbitmq' => {
-        'vhost' => '/sensu',
-        'user' => 'sensu',
-        'password' => 'password'
       }
     },
     'test1' => {
       'sub_domain' => 'test1',
-      'web_port' => 80,
-      'ssl' => {
-        'key' => 'ssl_key',
-        'cert' => 'ssl_cert'
-      }
+      'web_port' => 80
     },
     'test2' => {
       'sub_domain' => 'test2',
-      'web_port' => 80,
-      'ssl' => {
-        'key' => 'ssl_key',
-        'cert' => 'ssl_cert'
+      'web_port' => 80
+    },
+    'secrets' => {
+      'sensu' => {
+        'rabbitmq' => {
+          'vhost' => '/sensu',
+          'user' => 'sensu',
+          'password' => 'password'
+        }
+      },
+      'test1' => {
+        'ssl' => {
+          'key' => 'ssl_key',
+          'cert' => 'ssl_cert'
+        }
+      },
+      'test2' => {
+        'ssl' => {
+          'key' => 'ssl_key',
+          'cert' => 'ssl_cert'
+        }
       }
     }
   }
