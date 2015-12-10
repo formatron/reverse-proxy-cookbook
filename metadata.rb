@@ -1,5 +1,8 @@
 name 'formatron_reverse_proxy'
 version '0.1.0'
+description 'Formatron reverse proxy cookbook'
+source_url 'https://github.com/formatron/reverse-proxy-cookbook'
+issues_url 'https://github.com/formatron/reverse-proxy-cookbook/issues'
 supports 'ubuntu'
 depends 'formatron_common'
 depends 'formatron_nginx'
