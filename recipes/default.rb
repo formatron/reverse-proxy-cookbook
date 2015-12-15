@@ -27,12 +27,12 @@ hosted_zone_name = configuration['dsl']['global']['hosted_zone_name']
 
 proxies.each do |proxy|
   config = configuration['config'][proxy]
-  secrets = configuration['config']['secrets'][proxy]
+  ssl_config = configuration['config']['secrets']['ssl']
   hostname = "#{config['sub_domain']}.#{hosted_zone_name}"
   formatron_nginx_proxy hostname do
     port config['web_port']
-    ssl_cert secrets['ssl']['cert']
-    ssl_key secrets['ssl']['key']
+    ssl_cert ssl_config['cert']
+    ssl_key ssl_config['key']
     notifies :reload, 'service[nginx]', :delayed
   end
 end

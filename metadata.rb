@@ -1,5 +1,5 @@
 name 'formatron_reverse_proxy'
-version '0.1.2'
+version '0.1.3'
 description 'Formatron reverse proxy cookbook'
 maintainer 'Peter Halliday'
 maintainer_email 'pghalliday@gmail.com'

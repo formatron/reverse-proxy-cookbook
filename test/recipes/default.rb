@@ -44,23 +44,15 @@ node.default['formatron_reverse_proxy']['configuration'] = {
       'web_port' => 80
     },
     'secrets' => {
+      'ssl' => {
+        'key' => 'ssl_key',
+        'cert' => 'ssl_cert'
+      },
       'sensu' => {
         'rabbitmq' => {
           'vhost' => '/sensu',
           'user' => 'sensu',
           'password' => 'password'
-        }
-      },
-      'test1' => {
-        'ssl' => {
-          'key' => 'ssl_key',
-          'cert' => 'ssl_cert'
-        }
-      },
-      'test2' => {
-        'ssl' => {
-          'key' => 'ssl_key',
-          'cert' => 'ssl_cert'
         }
       }
     }
