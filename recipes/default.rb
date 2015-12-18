@@ -1,23 +1,6 @@
 configuration = node['formatron_reverse_proxy']['configuration']
 proxies = node['formatron_reverse_proxy']['proxies']
 
-node.default['formatron_filebeat']['prospectors'] = [{
-  paths: [
-    '/var/log/syslog'
-  ],
-  document_type: 'syslog'
-}, {
-  paths: [
-    '/var/log/nginx/*access.log'
-  ],
-  document_type: 'nginx_access'
-}, {
-  paths: [
-    '/var/log/nginx/*error.log'
-  ],
-  document_type: 'nginx_error'
-}]
-
 node.default['formatron_common']['configuration'] = configuration
 include_recipe 'formatron_common::default'
 
@@ -35,4 +18,16 @@ proxies.each do |proxy|
     ssl_key ssl_config['key']
     notifies :reload, 'service[nginx]', :delayed
   end
+end
+
+formatron_filebeat_prospector 'nginx_access' do
+  paths [
+    '/var/log/nginx/*access.log'
+  ]
+end
+
+formatron_filebeat_prospector 'nginx_error' do
+  paths [
+    '/var/log/nginx/*error.log'
+  ]
 end
